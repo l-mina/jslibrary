@@ -37,14 +37,21 @@ function deleteBook(bookid){
     const deleteBookBtn = document.getElementById(bookid.id);
     deleteBookBtn.remove();
 }
+function updateBook(bookid){
+    let end = parseInt(bookid.id.length);
+    let num = parseInt(bookid.id.slice(2,3));
+    myLibrary[num].read='yes';
+    const book = document.getElementById(bookid.id);
+    book.innerHTML="<span class='title'>"+myLibrary[num].title+"</span><br/>Author: "+myLibrary[num].author+"</span><br/>Pages: "+myLibrary[num].pages+"</span><br/>Read?: "+myLibrary[num].read+"<br/><button class='remove' onClick='deleteBook(id"+num+")'>Delete</button><button class='remove' onClick='updateBook(id"+num+")'>Delete</button>";
+}
 
 function updateLibrary(idNum){
     const shelf = document.querySelector(".shelf");
     const displayBook = document.createElement('div');
     displayBook.className="book";
     displayBook.id = 'id'+idNum;
-    alert(displayBook.id);
-    displayBook.innerHTML="<span class='title'>"+myLibrary[idNum].title+"</span><br/>Author: "+myLibrary[idNum].author+"</span><br/>Pages: "+myLibrary[idNum].pages+"</span><br/>Read?: "+myLibrary[idNum].read+"<br/><button class='remove' onClick='deleteBook("+(displayBook.id)+")'>Delete</button>";
+
+    displayBook.innerHTML="<span class='title'>"+myLibrary[idNum].title+"</span><br/>Author: "+myLibrary[idNum].author+"</span><br/>Pages: "+myLibrary[idNum].pages+"</span><br/>Read?: "+myLibrary[idNum].read+"<br/><button class='remove' onClick='deleteBook("+(displayBook.id)+")'>Delete</button><button class='remove' onClick='updateBook("+displayBook.id+")'>Delete</button>";
     shelf.append(displayBook);
 }
 
