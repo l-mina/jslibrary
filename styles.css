@@ -1,0 +1,29 @@
+body {
+    font-family: sans-serif;
+}
+/* book card */
+.shelf {
+    background-color: red;
+    display: grid;
+    grid-template-columns: repeat(3,200px);
+    grid-template-rows: repeat(auto,200px);
+    column-gap: 10%;
+    row-gap: 10%;
+}
+
+.book {
+    border: 2px solid black;
+    padding: 5px;
+    width: 150px;
+    height: 100px;
+    font-size: 0.9rem;
+    border-radius: 20px;
+}
+
+.title{
+    font-size: 1.2rem;
+    margin-left: 15px;
+
+}
+
+
